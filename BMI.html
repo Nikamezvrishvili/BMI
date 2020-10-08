@@ -1,0 +1,107 @@
+<html lang="georgian" dir="ltr">
+    <head>
+        <meta charset="UTF-8" />
+        <title>BMI კალკულატორი</title>
+    </head>
+    <style media="screen">
+        body{
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        font-family: sans-serif;
+        background-image: linear-gradient( yellow,orange);
+        min-height: 100vh;
+        }
+        div{
+        width: 500px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        background-color:orange;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 1px 1px 20px   #d63031;
+        }
+        h2{
+        font-size: 30px;
+        font-weight: 600;
+        }
+		h3{
+		font-size: 15px;
+		font-weight:550;
+		padding-left:400px;
+        .text{
+        text-align: left;
+        margin-left: 150px;
+        }
+        #w, #h{
+        color: #222f3e;
+        text-align: left;
+        font-size; 20px;
+        font-weight: 200;
+        autline: none;
+        border: none;
+        background: none;
+        border-bottom: 1px solid #6c5ce7;
+        width: 200px;
+        }
+        #w:focus, #h:focus{
+        border-bottom: 2px solid  #880E4F;
+        width: 300px;
+        transition: 0.5s;
+        }
+        #result{
+        color: #6F1E51;
+        }
+        #btn{
+        font-family: inherit;
+        margin-top:10px;
+        border: none;
+        color: #fff;
+        background-image: linear-gradient(120deg, #ff6b6b, #5f27cd);
+        width: 150px;
+        padding: 10px;
+        border-radius: 30px;
+        outline: none;
+        cursor: pointer;
+        }
+        #btn:hover{
+        box-shadow: 1px  1px 10px  #6F1E51;
+        }
+        #info{
+        font-size:12px;
+        font-family: inherit;
+        }
+    </style>
+    <script>
+        function BMI() {
+            var h = document.getElementById("h").value;
+            var w = document.getElementById("w").value;
+            var bmi = w / (((h / 100) * h) / 100);
+            var bmio = parseFloat(bmi.toFixed(2));
+           if(bmio<18.5){
+            	document.getElementById("result").innerHTML = "შენი სხეულის მასის ინდექსი არის დაბალი " + bmio;
+			}else if(bmio<24.9){
+            	document.getElementById("result").innerHTML = "შენი სხეულის მასის ინდექსი არის საშუალო " + bmio;
+            }else if(bmio<29.9){
+            	document.getElementById("result").innerHTML = "შენი სხეულის მასის ინდექსი არის ნორმაზე მეტი " + bmio;
+            }else{
+            	document.getElementById("result").innerHTML = "შენი სხეულის მასის ინდექსი არის მაღალი " + bmio;
+            }
+        }
+    </script>
+    <body>
+        <div>
+            <h2>BMI კალკულატორი</h2>
+            <p class="text">სიმაღლე</p>
+            <input type="number" id="h" />
+            <p class="text">წონა</p>
+            <input type="number" id="w" />
+            <p id="result"></p>
+            <button id="btn" onClick="BMI()">კალკულაცია</button>
+            <p id="info">მიუთითეთ სიმაღლე {სმ} და მასა {კგ}</p>
+			<h3>Vitamini.ge</h3>
+        </div>
+    </body>
+</html>
